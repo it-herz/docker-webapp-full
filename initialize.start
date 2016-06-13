@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cp /var/www/html/wordpress/* /var/www/html/current/
+mkdir -p /var/www/html/current/wp-admin/
+mkdir -p /var/www/html/current/wp-includes/
+cp -r /var/www/html/wordpress/wp-admin/* /var/www/html/current/wp-admin/
+cp -r /var/www/html/wordpress/wp-includes/* /var/www/html/current/wp-includes/
+
+if [ -f /var/www/html/current/wp-content/wp-config.php ]
+then
+  cp /var/www/html/current/wp-content/wp-config.php /var/www/html/current/wp-config.php
+fi
+
+if [ ! -f /var/www/html/current/wp-content/index.php ]
+  then
+    cd /wp-content
+    cp -r * /var/www/html/current/wp-content/
+  else
+    echo "File exists"
+fi
