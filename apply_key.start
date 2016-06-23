@@ -40,9 +40,9 @@ fi
 
 mkdir /var/www/html/.ssh
 cp /key /var/www/html/.ssh/deploykey 
-cp /publickey /var/www/html/.ssh/authorized_keys
-chown dev /var/www/html/.ssh/authorized_keys
-chown 600 /var/www/html/.ssh/authorized_keys
+#cp /publickey /var/www/html/.ssh/authorized_keys
+#chown dev /var/www/html/.ssh/authorized_keys
+#chown 600 /var/www/html/.ssh/authorized_keys
 chmod 600 /var/www/html/.ssh/deploykey 
 touch /var/www/html/.ssh/config 
 chmod 600 /var/www/html/.ssh/config 
