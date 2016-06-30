@@ -12,7 +12,6 @@ ADD 05-php.conf /etc/nginx/conf.d/
 ADD supervisord.conf /etc/
 ADD applykey /etc/container-run.d/
 
-
 EXPOSE 80 22
 
 VOLUME /var/www/html
