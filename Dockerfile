@@ -8,7 +8,7 @@ RUN  apk update && \
      umask 002 && \
      sed -i 's/#PubkeyAuthentication.*/PubkeyAuthentication yes/ig' /etc/ssh/sshd_config && \
      sed -i 's/#RSAAuthentication.*/RSAAuthentication yes/ig' /etc/ssh/sshd_config && \
-     npm install -g bowerB
+     npm install -g bower
 
 ADD nginx.conf /etc/nginx/
 ADD 01-root.conf /etc/nginx/conf.d/
