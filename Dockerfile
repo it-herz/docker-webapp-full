@@ -1,6 +1,6 @@
 FROM itherz/webapp-full:a7
 
-ENV FOLDER=/var/www/html/current/web
+ENV FOLDER=/var/www/html/current
 
 ADD latest.tar.gz /var/www/html
 ADD initialize.start /etc/local.d/initialize.start
@@ -11,5 +11,6 @@ VOLUME $FOLDER/wp-content
 
 ENV PHP_MODULES "mysqli gd iconv pdo_mysql opcache memcached ldap"
 
-WORKDIR /var/www/html/current/web
+WORKDIR $FOLDER
+
 
