@@ -9,7 +9,7 @@ ADD 05-php.conf /etc/nginx/conf.d/05-php.conf
 
 RUN apk add memcached && cd /var/www/html/wordpress/wp-content && mkdir /wp-content && cp -r * /wp-content/
 
-VOLUME $FOLDER/wp-content
+VOLUME /var/www/html/current/wp-content
 
 ENV PHP_MODULES "mysqli gd iconv pdo_mysql opcache memcached ldap"
 
