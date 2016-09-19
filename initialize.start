@@ -18,3 +18,5 @@ if [ ! -f /var/www/html/current/wp-content/index.php ]
   else
     echo "File exists"
 fi
+
+cp /var/www/html/current/wp-config.php /var/www/html/current/wp-content/wp-config.php
