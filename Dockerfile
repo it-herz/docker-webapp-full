@@ -8,7 +8,7 @@ ADD 05-php.conf /etc/nginx/conf.d/05-php.conf
 
 RUN apk add memcached wget && \
      cd /var/www/html && wget https://wordpress.org/latest.zip && \
-     unzip latest.zip && cd wordpress && mv * .. && cd .. && rmdir wordpress && \
+     unzip latest.zip && \
      cd /var/www/html/wordpress/wp-content && mkdir /wp-content && cp -r * /wp-content/
 
 VOLUME /var/www/html/current/wp-content
