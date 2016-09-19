@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cp /var/www/html/wordpress/* /var/www/html/current/
+cp /wordpress/* /var/www/html/current/
 mkdir -p /var/www/html/current/wp-admin/
 mkdir -p /var/www/html/current/wp-includes/
-cp -r /var/www/html/wordpress/wp-admin/* /var/www/html/current/wp-admin/
-cp -r /var/www/html/wordpress/wp-includes/* /var/www/html/current/wp-includes/
+cp -r /wordpress/wp-admin/* /var/www/html/current/wp-admin/
+cp -r /wordpress/wp-includes/* /var/www/html/current/wp-includes/
 
 if [ -f /var/www/html/current/wp-content/wp-config.php ]
 then
