@@ -2,12 +2,14 @@ FROM itherz/webapp-full:a7
 
 ENV FOLDER=/var/www/html/current
 
-ADD latest.tar.gz /var/www/html
 ADD initialize.start /etc/local.d/initialize.start
 ADD 01-root.conf /etc/nginx/conf.d/01-root.conf
 ADD 05-php.conf /etc/nginx/conf.d/05-php.conf
 
-RUN apk add memcached && cd /var/www/html/wordpress/wp-content && mkdir /wp-content && cp -r * /wp-content/
+RUN apk add memcached wget && \
+     cd /var/www/html && wget https://wordpress.org/latest.zip && \
+     unzip latest.zip && cd wordpress && mv * .. && cd .. && rmdir wordpress && \
+     cd /var/www/html/wordpress/wp-content && mkdir /wp-content && cp -r * /wp-content/
 
 VOLUME /var/www/html/current/wp-content
 
