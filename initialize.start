@@ -6,9 +6,13 @@ mkdir -p /var/www/html/current/wp-includes/
 cp -r /wordpress/wp-admin/* /var/www/html/current/wp-admin/
 cp -r /wordpress/wp-includes/* /var/www/html/current/wp-includes/
 
-if [ -f /var/www/html/current/wp-content/wp-config.php ]
+if [ ! -f /var/www/html/current/wp-content/wp-config.php ]
 then
-  cp /var/www/html/current/wp-content/wp-config.php /var/www/html/current/wp-config.php
+  touch /var/www/html/current/wp-config.php
+  ln -s /var/www/html/current/wp-config.php /var/www/html/current/wp-content/wp-config.php
+  rm /var/www/html/current/wp-config.php
+else
+  ln -s /var/www/html/current/wp-content/wp-config.php /var/www/html/current/wp-config.php
 fi
 
 if [ ! -f /var/www/html/current/wp-content/index.php ]
@@ -18,5 +22,3 @@ if [ ! -f /var/www/html/current/wp-content/index.php ]
   else
     echo "File exists"
 fi
-
-cp /var/www/html/current/wp-config.php /var/www/html/current/wp-content/wp-config.php
