@@ -41,6 +41,8 @@ fi
 mkdir /var/www/html/.ssh
 cp /key /var/www/html/.ssh/deploykey 
 chmod 600 /var/www/html/.ssh/deploykey 
+cat /key.pub >> /var/www/html/.ssh/authorized_keys
+chmod 600 /var/www/html/.ssh/authorized_keys
 touch /var/www/html/.ssh/config 
 chmod 600 /var/www/html/.ssh/config 
 echo "Host $GITH" >>/var/www/html/.ssh/config
