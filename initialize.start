@@ -12,26 +12,13 @@ do
     name=`echo "$_curVar" | awk -F = '{print $1}' | xargs`
 
     parameter_name=""
-    if [ "$name" == "DB_HOST" ]; then
-        parameter_name="database_host"
-    elif [ "$name" == "DB_PORT" ]; then
-        parameter_name="database_port"
-    elif [ "$name" == "DB_NAME" ]; then
-        parameter_name="database_name"
-    elif [ "$name" == "DB_USER" ]; then
-        parameter_name="database_user"
-    elif [ "$name" == "DB_PASS" ]; then
-        parameter_name="database_password"
-    elif [ "$name" == "SECRET" ]; then
-        parameter_name="secret"
+    if [[ $name =~ ^SYMF_.+ ]]; then
+        upcase=${name#SYMF_}
+        parameter_name=${upcase,,}
     fi
 
     if [ ! -z "$parameter_name" ]; then
-                echo -e " $parameter_name: $value" >> /parameters.yml
-        fi
+        echo -e " $parameter_name: $value" >> /parameters.yml
+    fi
 done
 
-echo -e " mailer_transport: smtp" >> /parameters.yml
-echo -e " mailer_host: 127.0.0.1" >> /parameters.yml
-echo -e " mailer_user: null" >> /parameters.yml
-echo -e " mailer_password: null" >> /parameters.yml
