@@ -1,7 +1,7 @@
 FROM itherz/webapp-tiny:a7
 
 RUN  apk update && \
-     apk add openssh sudo nodejs \
+     apk add openssh sudo nodejs rsync \
              nginx && \
      rc-update add sshd sysinit && \
      rc-update add nginx sysinit && \
