@@ -14,8 +14,7 @@ do
     parameter_name=""
     if [[ $name =~ ^SYMF_.+ ]]; then
         upcase=${name#SYMF_}
-        lowcase=${upcase,,}
-        parameter_name=${lowcase/-/\.}
+        parameter_name=${upcase,,}
     fi
 
     if [ ! -z "$parameter_name" ]; then
