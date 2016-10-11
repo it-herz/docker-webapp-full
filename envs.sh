@@ -1,4 +1,4 @@
-for v in /etc/envs
+for v in $(cat /etc/envs)
 do
     export $v
 done
