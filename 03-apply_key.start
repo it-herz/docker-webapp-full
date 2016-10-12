@@ -38,7 +38,7 @@ then
   GITP=22
 fi
 
-mkdir /var/www/html/.ssh
+mkdir -p /var/www/html/.ssh
 cp /key /var/www/html/.ssh/deploykey 
 chmod 600 /var/www/html/.ssh/deploykey 
 cat /depkey.pub >> /var/www/html/.ssh/authorized_keys
