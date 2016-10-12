@@ -6,7 +6,7 @@ ADD 01-root.conf /etc/nginx/conf.d/01-root.conf
 RUN apk add redis nodejs && npm install -g npm bower --prefix=/usr/local && \
     ln -s -f /usr/local/bin/npm /usr/bin/npm && ln -s -f /usr/local/bin/bower /usr/bin/bower && \
     # Dirty hack to share envs for ssh
-    sed -i '1s/^/mkdir -p \/var\/www\/html\/.ssh && env | grep _ >> \/var\/www\/html\/.ssh\/environment\n/' /root/rc && \
+    sed -i '1s/^/mkdir -p \/var\/www\/html\/.ssh \&\& env | grep _ >> \/var\/www\/html\/.ssh\/environment\n/' /root/rc && \
     sed -i 's/#\(PermitUserEnvironment\) no/\1 yes/g' /etc/ssh/sshd_config
 
 ENV SYMFONY__DATABASE_HOST localhost
