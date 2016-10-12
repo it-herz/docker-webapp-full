@@ -8,10 +8,10 @@ RUN  apk update && \
      umask 002 && \
      sed -i 's/#PubkeyAuthentication.*/PubkeyAuthentication yes/ig' /etc/ssh/sshd_config && \
      sed -i 's/#RSAAuthentication.*/RSAAuthentication yes/ig' /etc/ssh/sshd_config && \
-     npm install -g bower
+     npm install -g bower && \
      # Dirty hack to share envs for ssh
      sed -i '1s/^/mkdir -p \/var\/www\/html\/.ssh \&\& env | grep _ >> \/var\/www\/html\/.ssh\/environment\n/' /root/rc && \
-     sed -i 's/#\(PermitUserEnvironment\) no/\1 yes/g' /etc/ssh/sshd_config && \
+     sed -i 's/#\(PermitUserEnvironment\) no/\1 yes/g' /etc/ssh/sshd_config
 
 ADD nginx.conf /etc/nginx/
 ADD 01-root.conf /etc/nginx/conf.d/
