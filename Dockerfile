@@ -17,5 +17,6 @@ ADD nginx.conf /etc/nginx/
 ADD 01-root.conf /etc/nginx/conf.d/
 ADD 05-php.conf /etc/nginx/conf.d/
 ADD 03-apply_key.start /etc/local.d/
+ADD 04-add_nginx_tmp_dir_perms.start /etc/local.d/
 
 EXPOSE 80 22
