@@ -7,7 +7,7 @@ RUN  /opt/nginx-install.sh && rm /opt/nginx-install.sh
 COPY nginx /etc/init.d/
 
 RUN  apk update && \
-     apk add openssh sudo nodejs rsync && \
+     apk add openssh sudo nodejs rsync git curl && \
      rc-update add sshd sysinit && \
      rc-update add nginx sysinit && \
      umask 002 && \
