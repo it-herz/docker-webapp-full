@@ -130,5 +130,6 @@ apk add git && mkdir -p /opt && cd /opt && git clone https://github.com/simpl/ng
 	&& apk del .gettext \
 	&& mv /tmp/envsubst /usr/local/bin/ \
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
-	&& ln -sf /dev/stderr /var/log/nginx/error.log
+	&& ln -sf /dev/stderr /var/log/nginx/error.log \
+	&& mkdir -p /var/lib/nginx && chmod 777 -R /var/lib/nginx
 
