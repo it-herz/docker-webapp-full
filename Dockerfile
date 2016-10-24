@@ -4,6 +4,8 @@ COPY nginx-install.sh /opt/
 
 RUN  /opt/nginx-install.sh && rm /opt/nginx-install.sh
 
+COPY nginx /etc/init.d/
+
 RUN  apk update && \
      apk add openssh sudo nodejs rsync && \
      rc-update add sshd sysinit && \
