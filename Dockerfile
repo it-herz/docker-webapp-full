@@ -2,9 +2,10 @@ FROM itherz/webapp-tiny:a7
 
 COPY nginx-install.sh /opt/
 
+RUN  /opt/nginx-install.sh && rm /opt/nginx-install.sh
+
 RUN  apk update && \
      apk add openssh sudo nodejs rsync && \
-     /opt/nginx-install.sh && rm /opt/nginx-install.sh && \
      rc-update add sshd sysinit && \
      rc-update add nginx sysinit && \
      umask 002 && \
