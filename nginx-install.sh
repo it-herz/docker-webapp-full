@@ -11,7 +11,7 @@ LUAJIT_LIB=/usr/local/lib/lua/5.1
 LUAJIT_INC=/usr/local/include/luajit-2.0
 
 #Original nginx build (with modules ngx_devel_kit, lua-nginx-module, nginx-auth-ldap)
-apk update && apk add git && mkdir -p /opt && cd /opt && git clone https://github.com/simpl/ngx_devel_kit && cd ngx_devel_kit && git checkout -b v$NGX_DEVEL_KIT_VERSION && \
+apk add git && mkdir -p /opt && cd /opt && git clone https://github.com/simpl/ngx_devel_kit && cd ngx_devel_kit && git checkout -b v$NGX_DEVEL_KIT_VERSION && \
     apk add make g++ && cd /opt && git clone https://github.com/luajit/luajit && cd luajit && git checkout -b v$LUAJIT_VERSION && make && make install && cd .. && \
     cd /opt && git clone https://github.com/openresty/lua-nginx-module && cd lua-nginx-module && git checkout -b v$LUA_NGINX_MODULE_VERSION && \
     cd /opt && \
@@ -85,7 +85,7 @@ apk update && apk add git && mkdir -p /opt && cd /opt && git clone https://githu
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz -o nginx.tar.gz \
 	&& curl -fSL http://nginx.org/download/nginx-$NGINX_VERSION.tar.gz.asc  -o nginx.tar.gz.asc \
 	&& export GNUPGHOME="$(mktemp -d)" \
-	&&https://www.youtube.com/watch?time_continue=59&v=VmZdYEjbQY8 \
+        && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$GPG_KEYS" \
 	&& gpg --batch --verify nginx.tar.gz.asc nginx.tar.gz \
 	&& rm -r "$GNUPGHOME" nginx.tar.gz.asc \
 	&& mkdir -p /usr/src \
