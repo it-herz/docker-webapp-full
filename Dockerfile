@@ -132,7 +132,7 @@ RUN apt update && apt install -y git pax-utils && mkdir -p /opt && cd /opt && gi
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log \
         # some cleanup 
-        && apt purge -y build-essential git pax-utils libxslt-dev libgd-dev libperl-dev libldap-dev libssl-dev libpcre3-dev zlib1g-dev linux-headers-amd64 libgd-dev && apt-get autoremove -y && mkdir -p /var/cache/nginx/
+        && apt purge -y build-essential pax-utils libxslt-dev libgd-dev libperl-dev libldap-dev libssl-dev libpcre3-dev zlib1g-dev linux-headers-amd64 libgd-dev && apt-get autoremove -y && mkdir -p /var/cache/nginx/
 
 ADD nginx.conf /etc/nginx/
 ADD 01-root.conf /etc/nginx/conf.d/
