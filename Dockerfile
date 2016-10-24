@@ -1,6 +1,6 @@
 FROM itherz/webapp-tiny:a7
 
-COPY nginx-install.sh /opt
+COPY nginx-install.sh /opt/
 
 RUN  apk update && \
      apk add openssh sudo nodejs rsync && \
