@@ -4,7 +4,7 @@ COPY nginx-install.sh /opt/
 
 RUN  apk update && \
      apk add openssh sudo nodejs rsync && \
-     /opt/nginx-install.sh && rm /opt/nginx-install.sh
+     /opt/nginx-install.sh && rm /opt/nginx-install.sh && \
      rc-update add sshd sysinit && \
      rc-update add nginx sysinit && \
      umask 002 && \
