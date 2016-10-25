@@ -1,0 +1,2 @@
+#!/bin/bash
+echo "$DEVUSER ALL=(ALL) NOPASSWD: /usr/bin/setfacl" > /etc/sudoers.d/ssh_user
