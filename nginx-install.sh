@@ -14,9 +14,7 @@ LUAJIT_INC=/usr/local/include/luajit-2.0
 apk add git && mkdir -p /opt && cd /opt && git clone https://github.com/simpl/ngx_devel_kit && cd ngx_devel_kit && git checkout -b v$NGX_DEVEL_KIT_VERSION && \
     apk add make g++ && cd /opt && git clone https://github.com/luajit/luajit && cd luajit && git checkout -b v$LUAJIT_VERSION && make && make install && cd .. && \
     cd /opt && git clone https://github.com/openresty/lua-nginx-module && cd lua-nginx-module && git checkout -b v$LUA_NGINX_MODULE_VERSION && \
-    cd /opt && \
-    git clone https://github.com/kvspb/nginx-auth-ldap.git && \
-    apk del git && \
+    cd /opt && git clone https://github.com/kvspb/nginx-auth-ldap.git && \
     GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& CONFIG="\
 		--prefix=/etc/nginx \
