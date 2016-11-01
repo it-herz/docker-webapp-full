@@ -6,7 +6,7 @@ RUN  apt-get update && \
      wget http://ftp.ru.debian.org/debian/pool/main/n/ncurses/libncursesw5_6.0+20160917-1_amd64.deb && \
      dpkg -i *.deb && \
      rm -rf /tmp/* && \
-     apt-get install -y openssh-server && \
+     apt-get install -y openssh-server nginx && \
              mkdir -p /var/run/sshd && \
      umask 002
 
