@@ -11,7 +11,7 @@ ENV LUA_NGINX_MODULE_VERSION 0.10.6
 ENV LUAJIT_LIB=/usr/local/lib/lua/5.1
 ENV LUAJIT_INC=/usr/local/include/luajit-2.0
 
-RUN apt update && apt install -y git pax-utils && mkdir -p /opt && cd /opt && git clone https://github.com/simpl/ngx_devel_kit && cd ngx_devel_kit && git checkout -b v$NGX_DEVEL_KIT_VERSION && \
+RUN apt update && apt install -y git pax-utils && mkdir -p /opt && cd /opt && git clone https://github.com/simpl/ngx_devel_kit && cd ngx_devel_kit && git checkout tags/v$NGX_DEVEL_KIT_VERSION && \
     apt install -y make g++ && cd /opt && git clone https://github.com/luajit/luajit && cd luajit && git checkout tags/v$LUAJIT_VERSION && make && make install && cd .. && \
     cd /opt && git clone https://github.com/openresty/lua-nginx-module && cd lua-nginx-module && git checkout tags/v$LUA_NGINX_MODULE_VERSION && \
     cd /opt && git clone https://github.com/kvspb/nginx-auth-ldap.git && \ 
