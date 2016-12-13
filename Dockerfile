@@ -2,8 +2,8 @@ FROM itherz/webapp-tiny:d5
 
 RUN  apt-get update && \
      cd /tmp && \
-     wget http://ftp.ru.debian.org/debian/pool/main/n/ncurses/libncurses5_6.0+20160917-1_amd64.deb && \
-     wget http://ftp.ru.debian.org/debian/pool/main/n/ncurses/libncursesw5_6.0+20160917-1_amd64.deb && \
+     wget http://ftp.ru.debian.org/debian/pool/main/n/ncurses/libncurses5_6.0+20161126-1_amd64.deb && \
+     wget http://ftp.ru.debian.org/debian/pool/main/n/ncurses/libncursesw5_6.0+20161126-1_amd64.deb && \
      dpkg -i *.deb && \
      rm -rf /tmp/* && \
      apt-get install -y openssh-server nginx && \
