@@ -50,5 +50,12 @@ chmod 600 /var/www/html/.ssh/config
 echo "Host $GITH" >>/var/www/html/.ssh/config
 echo "  IdentityFile /var/www/html/.ssh/deploykey" >>/var/www/html/.ssh/config
 echo "  Port $GITP" >>/var/www/html/.ssh/config
+
 ssh-keyscan -p $GITP -v $GITH >> /var/www/html/.ssh/known_hosts
+until [ $? ]
+do
+  ssh-keyscan -p $GITP -v $GITH >> /var/www/html/.ssh/known_hosts
+  sleep 30000
+done
+
 chown dev -R /var/www/html/.ssh
